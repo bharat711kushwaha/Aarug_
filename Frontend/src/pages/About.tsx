@@ -1,138 +1,323 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Leaf, Recycle, Heart, Users, Mail, MapPin, Phone } from "lucide-react";
-import teamImage from "../assets/team.jpg"; // ✅ Correct Import
-import ceoImage from "../assets/aarug.jpg"; // ✅ Correct Import
-import coFounderImage from "../assets/aarug.jpg"; // ✅ Correct Import
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-const About: React.FC = () => {
+// Import images from your assets folder
+import heroBackground from "../assets/ceo.jpg";
+import aboutImage from "../assets/ceo.jpg";
+import whatWeDoImage from "../assets/ceo.jpg";
+import journeyBackground from "../assets/ceo.jpg";
+import teamImage from "../assets/team.jpg";
+import ceoImage from "../assets/ceo.jpg";
+import coFounderImage from "../assets/ceo.jpg";
+
+const About = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: false,
+      mirror: true,
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen pt-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+      {/* Hero Banner with Background Image */}
+      <div 
+        className="relative h-80 bg-cover bg-center flex items-center justify-center" 
+        style={{ backgroundImage: `url(${heroBackground})` }}
+      >
+        <div className="absolute inset-0 bg-emerald-900 opacity-60"></div>
+        <div className="relative z-10 text-center text-white" data-aos="fade-up">
+          <h1 className="text-6xl font-bold mb-4">About Us</h1>
+          <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
+        </div>
+      </div>
 
-        {/* About Aarug Section */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4 animate-fade-in">About Aarug</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in">
-            Aarug is a startup dedicated to providing sustainable and eco-friendly menstrual products.  
-            Our mission is to revolutionize menstrual care by offering reusable, comfortable, and environmentally safe solutions.
+      {/* Main Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        {/* Our Mission */}
+        <div className="text-center mb-24" data-aos="fade-up">
+          <h2 className="text-4xl font-bold text-emerald-800 mb-6">Our Mission</h2>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+          <p className="text-xl text-emerald-700 max-w-3xl mx-auto">
+            Aarug is dedicated to revolutionizing menstrual care by providing sustainable, 
+            eco-friendly products that empower women while protecting our planet.
           </p>
         </div>
 
-        {/* Company Features */}
-        <div className="grid md:grid-cols-3 gap-12 mb-16 animate-slide-up">
-          <div className="text-center">
-            <div className="flex justify-center mb-4">
-              <Leaf className="h-12 w-12 text-green-600" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Eco-Friendly</h3>
-            <p className="text-gray-600">
-              Made from sustainable materials, reducing environmental impact.
-            </p>
+        {/* About Us Section - Image Left, Content Right */}
+        <div className="flex flex-col md:flex-row items-center gap-10 mb-32">
+          <div className="md:w-1/2" data-aos="fade-right">
+            <img 
+              src={aboutImage}
+              alt="About Aarug" 
+              className="rounded-lg shadow-xl w-full object-cover transform hover:scale-105 transition-transform duration-500"
+            />
           </div>
-          <div className="text-center">
-            <div className="flex justify-center mb-4">
-              <Recycle className="h-12 w-12 text-green-600" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Reusable</h3>
-            <p className="text-gray-600">
-              Designed for multiple uses, reducing waste and saving money.
+          <div className="md:w-1/2" data-aos="fade-left">
+            <h2 className="text-4xl font-bold text-emerald-800 mb-6">About Aarug</h2>
+            <div className="w-16 h-1 bg-yellow-400 mb-8"></div>
+            <p className="text-emerald-700 mb-4">
+              Aarug was born from a vision to create sustainable menstrual products that are both 
+              kind to the environment and comfortable for users. We believe that menstrual care 
+              should not come at the cost of our planet's health.
             </p>
-          </div>
-          <div className="text-center">
-            <div className="flex justify-center mb-4">
-              <Heart className="h-12 w-12 text-green-600" />
-            </div>
-            <h3 className="text-xl font-semibold mb-2">Comfortable</h3>
-            <p className="text-gray-600">
-              Made with premium materials for maximum comfort and protection.
+            <p className="text-emerald-700 mb-4">
+              Our products are designed with sustainability in mind, using organic materials that 
+              are biodegradable and reusable, reducing waste and environmental impact.
+            </p>
+            <p className="text-emerald-700">
+              We're committed to making eco-friendly menstrual care accessible to all, 
+              promoting both individual comfort and environmental responsibility.
             </p>
           </div>
         </div>
 
-        {/* CEO & Co-Founder Section */}
-        <div className="bg-white rounded-lg p-8 shadow-lg mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">Meet Our Founders</h2>
-          <div className="grid md:grid-cols-2 gap-8 items-center">
+        {/* What We Do Section - Content Left, Image Right */}
+        <div className="flex flex-col-reverse md:flex-row items-center gap-10 mb-32">
+          <div className="md:w-1/2" data-aos="fade-right">
+            <h2 className="text-4xl font-bold text-emerald-800 mb-6">What We Do</h2>
+            <div className="w-16 h-1 bg-yellow-400 mb-8"></div>
+            <p className="text-emerald-700 mb-4">
+              At Aarug, we design and manufacture high-quality, reusable menstrual products that 
+              are both comfortable and environmentally friendly. Our product range includes:
+            </p>
+            <ul className="text-emerald-700 mb-4 space-y-3">
+              <li className="flex items-start">
+                <Leaf className="w-5 h-5 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+                <span>Reusable menstrual pads made from organic cotton</span>
+              </li>
+              <li className="flex items-start">
+                <Leaf className="w-5 h-5 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+                <span>Eco-friendly menstrual cups crafted from medical-grade silicone</span>
+              </li>
+              <li className="flex items-start">
+                <Leaf className="w-5 h-5 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+                <span>Biodegradable tampons and pads for those who prefer disposable options</span>
+              </li>
+              <li className="flex items-start">
+                <Leaf className="w-5 h-5 text-yellow-500 mr-2 flex-shrink-0 mt-1" />
+                <span>Educational resources on sustainable menstrual practices</span>
+              </li>
+            </ul>
+            <p className="text-emerald-700">
+              We also actively work to break the stigma around menstruation through education and 
+              community outreach programs.
+            </p>
+          </div>
+          <div className="md:w-1/2" data-aos="fade-left">
+            <img 
+              src={whatWeDoImage}
+              alt="What We Do" 
+              className="rounded-lg shadow-xl w-full object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        </div>
+
+        {/* Our Journey Section with Background */}
+        <div className="relative py-24 mb-32">
+          <div 
+            className="absolute inset-0 bg-cover bg-center opacity-15 rounded-xl" 
+            style={{ backgroundImage: `url(${journeyBackground})` }}
+          ></div>
+          <div className="relative z-10 max-w-4xl mx-auto text-center px-6" data-aos="zoom-in">
+            <h2 className="text-4xl font-bold text-emerald-800 mb-6">Our Journey</h2>
+            <div className="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
+            <p className="text-2xl text-emerald-700 mb-8 italic font-serif">
+              "It all began with a shovel and digging a hole…"
+            </p>
+            <p className="text-emerald-700 mb-4">
+              Our journey started when our founders recognized the environmental impact of disposable 
+              menstrual products. They began researching sustainable alternatives, experimenting with 
+              materials and designs to create products that were both eco-friendly and comfortable.
+            </p>
+            <p className="text-emerald-700 mb-4">
+              Like planting a seed, they dug deep into the problem and nurtured their solution with 
+              care and dedication. From humble beginnings in a small workshop, Aarug has grown into 
+              a thriving company committed to environmental stewardship and women's health.
+            </p>
+            <p className="text-emerald-700">
+              Today, we continue to innovate and expand our product line, always staying true to our 
+              foundational values of sustainability, comfort, and accessibility.
+            </p>
+          </div>
+        </div>
+
+        {/* Core Values Section */}
+        <div className="mb-32">
+          <h2 className="text-4xl font-bold text-emerald-800 mb-6 text-center" data-aos="fade-up">Our Core Values</h2>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-12"></div>
+          <div className="grid md:grid-cols-2 gap-12">
+            
+            {/* Eco-Sisterhood */}
+            <div 
+              className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-8 shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" 
+              data-aos="fade-right"
+            >
+              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Users className="h-8 w-8 text-emerald-800" />
+              </div>
+              <h3 className="text-2xl font-semibold text-emerald-800 mb-4 text-center">Eco-Sisterhood</h3>
+              <p className="text-emerald-700 mb-4">
+                We believe in fostering a community of women who support each other and the planet. 
+                Our eco-sisterhood is built on shared values of environmental responsibility and 
+                mutual respect.
+              </p>
+              <p className="text-emerald-700">
+                By choosing sustainable menstrual products, our customers join a global movement of 
+                women taking steps to protect our environment while taking care of their bodies.
+              </p>
+            </div>
+            
+            {/* Connection to Earth */}
+            <div 
+              className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-8 shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" 
+              data-aos="fade-left"
+            >
+              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Heart className="h-8 w-8 text-emerald-800" />
+              </div>
+              <h3 className="text-2xl font-semibold text-emerald-800 mb-4 text-center">Connection to Earth</h3>
+              <p className="text-emerald-700 mb-4">
+                We honor the deep connection between women's bodies and the natural world. Our products 
+                are designed to respect this connection, using materials that come from and return to 
+                the earth without harm.
+              </p>
+              <p className="text-emerald-700">
+                By choosing Aarug, you're participating in a cycle of sustainability that benefits 
+                both your body and the planet we all share.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Meet Our Team Section */}
+        <div className="flex flex-col md:flex-row items-center gap-10 mb-32">
+          <div className="md:w-1/2" data-aos="fade-right">
+            <img 
+              src={teamImage}
+              alt="Our Team" 
+              className="rounded-xl shadow-xl w-full object-cover transform hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+          <div className="md:w-1/2" data-aos="fade-left">
+            <h2 className="text-4xl font-bold text-emerald-800 mb-6">Meet Our Team</h2>
+            <div className="w-16 h-1 bg-yellow-400 mb-8"></div>
+            <p className="text-emerald-700 mb-4">
+              Our team is made up of passionate individuals committed to making a difference in 
+              women's lives and for our planet. With diverse backgrounds in sustainability, design, 
+              and women's health, we bring a holistic approach to menstrual care.
+            </p>
+            <p className="text-emerald-700 mb-4">
+              Each member of our team contributes unique skills and perspectives, united by our 
+              shared vision of creating sustainable, comfortable menstrual products.
+            </p>
+            <p className="text-emerald-700">
+              We work collaboratively, constantly innovating and improving our products based on 
+              customer feedback and the latest research in sustainable materials.
+            </p>
+          </div>
+        </div>
+
+        {/* Founders Section */}
+        <div className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-12 shadow-xl mb-24" data-aos="zoom-in">
+          <h2 className="text-4xl font-bold text-emerald-800 mb-6 text-center">Our Founders</h2>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-12"></div>
+          <div className="grid md:grid-cols-2 gap-12">
             
             {/* CEO */}
-            <div className="text-center">
-              <img
-                src={ceoImage} // ✅ Using imported image
-                alt="CEO"
-                className="w-32 h-32 object-cover rounded-full mx-auto shadow-md"
-              />
-              <h3 className="text-xl font-semibold mt-4">Vinita patel</h3>
-              <p className="text-gray-500">Founder & CEO</p>
-              <p className="text-gray-600 mt-2">
-                Passionate about sustainability, Rahul founded Aarug to create eco-friendly menstrual solutions.
-              </p>
+            <div 
+              className="bg-white rounded-xl p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
+              data-aos="fade-right" data-aos-delay="100"
+            >
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <img
+                  src={ceoImage}
+                  alt="Vinita Patel"
+                  className="w-32 h-32 object-cover rounded-full shadow-md border-4 border-yellow-400"
+                />
+                <div>
+                  <h3 className="text-2xl font-semibold text-emerald-800">Vinita Patel</h3>
+                  <p className="text-yellow-500 font-medium mb-3">Founder & CEO</p>
+                  <p className="text-emerald-700">
+                    Passionate about sustainability and women's health, Vinita founded Aarug with 
+                    a vision to revolutionize menstrual care through eco-friendly solutions.
+                  </p>
+                </div>
+              </div>
             </div>
 
             {/* Co-Founder */}
-            <div className="text-center">
-              <img
-                src={coFounderImage} // ✅ Using imported image
-                alt="Co-Founder"
-                className="w-32 h-32 object-cover rounded-full mx-auto shadow-md"
-              />
-              <h3 className="text-xl font-semibold mt-4">Sneha Verma</h3>
-              <p className="text-gray-500">Co-Founder & COO</p>
-              <p className="text-gray-600 mt-2">
-                Sneha leads operations and innovation, ensuring Aarug delivers high-quality products.
-              </p>
+            <div 
+              className="bg-white rounded-xl p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
+              data-aos="fade-left" data-aos-delay="100"
+            >
+              <div className="flex flex-col md:flex-row items-center gap-6">
+                <img
+                  src={coFounderImage}
+                  alt="Praksha"
+                  className="w-32 h-32 object-cover rounded-full shadow-md border-4 border-yellow-400"
+                />
+                <div>
+                  <h3 className="text-2xl font-semibold text-emerald-800">Praksha</h3>
+                  <p className="text-yellow-500 font-medium mb-3">Co-Founder & COO</p>
+                  <p className="text-emerald-700">
+                    With expertise in operations and product development, Praksha ensures Aarug 
+                    delivers high-quality, innovative products while maintaining our commitment 
+                    to sustainability.
+                  </p>
+                </div>
+              </div>
             </div>
-
-          </div>
-        </div>
-
-        {/* Our Team Section */}
-        <div className="bg-green-50 rounded-lg p-8 shadow-lg mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center animate-slide-up">Our Amazing Team</h2>
-
-          {/* Group Photo */}
-          <div className="flex justify-center my-6">
-            <img src={teamImage} alt="Aarug Team" className="w-full max-w-3xl rounded-lg shadow-md" />
-          </div>
-
-          {/* Team Praise */}
-          <div className="text-center">
-            <Users className="w-12 h-12 text-green-600 mx-auto mb-4" />
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Our dedicated team is constantly innovating to provide high-quality, sustainable, and comfortable menstrual products for everyone.
-            </p>
           </div>
         </div>
 
         {/* Contact Us Section */}
-        <div className="bg-white rounded-lg p-8 shadow-lg mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center animate-fade-in">Contact Us</h2>
+        <div className="bg-gradient-to-br from-emerald-100 to-green-200 rounded-xl p-12 shadow-xl" data-aos="fade-up">
+          <h2 className="text-4xl font-bold text-emerald-800 mb-6 text-center">Contact Us</h2>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-12"></div>
 
           <div className="grid md:grid-cols-3 gap-8 text-center">
-
             {/* Address */}
-            <div>
-              <MapPin className="w-10 h-10 text-green-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold">Our Location</h3>
-              <p className="text-gray-500">GGU College Startup Center, Chhattisgarh, India</p>
+            <div 
+              className="bg-white p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
+              data-aos="fade-up" data-aos-delay="100"
+            >
+              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <MapPin className="h-8 w-8 text-emerald-800" />
+              </div>
+              <h3 className="text-xl font-semibold text-emerald-800 mb-2">Our Location</h3>
+              <p className="text-emerald-700">GGU College Startup Center, Chhattisgarh, India</p>
             </div>
 
             {/* Email */}
-            <div>
-              <Mail className="w-10 h-10 text-green-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold">Email Us</h3>
-              <p className="text-gray-500">support@aarug.com</p>
+            <div 
+              className="bg-white p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
+              data-aos="fade-up" data-aos-delay="200"
+            >
+              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Mail className="h-8 w-8 text-emerald-800" />
+              </div>
+              <h3 className="text-xl font-semibold text-emerald-800 mb-2">Email Us</h3>
+              <p className="text-emerald-700">support@aarug.com</p>
             </div>
 
             {/* Phone */}
-            <div>
-              <Phone className="w-10 h-10 text-green-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold">Call Us</h3>
-              <p className="text-gray-500">+91 9111361052</p>
+            <div 
+              className="bg-white p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
+              data-aos="fade-up" data-aos-delay="300"
+            >
+              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
+                <Phone className="h-8 w-8 text-emerald-800" />
+              </div>
+              <h3 className="text-xl font-semibold text-emerald-800 mb-2">Call Us</h3>
+              <p className="text-emerald-700">+91 9111361052</p>
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
   );

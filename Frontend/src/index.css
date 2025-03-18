@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 @import "tailwindcss";
 
 @layer base {
@@ -5,7 +6,9 @@
     @apply text-gray-900 bg-gray-50;
   }
 }
-
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
 @layer components {
   .btn {
     @apply px-4 py-2 rounded-md font-medium transition-colors;
