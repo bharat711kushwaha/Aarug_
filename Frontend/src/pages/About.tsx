@@ -22,44 +22,44 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-green-50 to-white">
+    <div className="w-full min-h-screen bg-gradient-to-b from-green-50 to-white overflow-hidden">
       {/* Hero Banner with Background Image */}
       <div 
-        className="relative h-80 bg-cover bg-center flex items-center justify-center" 
+        className="relative h-60 sm:h-80 w-full bg-cover bg-center flex items-center justify-center" 
         style={{ backgroundImage: `url(${heroBackground})` }}
       >
         <div className="absolute inset-0 bg-emerald-900 opacity-60"></div>
-        <div className="relative z-10 text-center text-white" data-aos="fade-up">
-          <h1 className="text-6xl font-bold mb-4">About Us</h1>
+        <div className="relative z-10 text-center text-white px-4" data-aos="fade-up">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">About Us</h1>
           <div className="w-24 h-1 bg-yellow-400 mx-auto"></div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16">
         
         {/* Our Mission */}
-        <div className="text-center mb-24" data-aos="fade-up">
-          <h2 className="text-4xl font-bold text-emerald-800 mb-6">Our Mission</h2>
-          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
-          <p className="text-xl text-emerald-700 max-w-3xl mx-auto">
+        <div className="text-center mb-16 sm:mb-24" data-aos="fade-up">
+          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-4 sm:mb-6">Our Mission</h2>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-6 sm:mb-8"></div>
+          <p className="text-lg sm:text-xl text-emerald-700 max-w-3xl mx-auto px-2">
             Aarug is dedicated to revolutionizing menstrual care by providing sustainable, 
             eco-friendly products that empower women while protecting our planet.
           </p>
         </div>
 
-        {/* About Us Section - Image Left, Content Right */}
-        <div className="flex flex-col md:flex-row items-center gap-10 mb-32">
-          <div className="md:w-1/2" data-aos="fade-right">
+        {/* About Us Section */}
+        <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-10 mb-16 sm:mb-32">
+          <div className="w-full md:w-1/2" data-aos="fade-right">
             <img 
               src={aboutImage}
               alt="About Aarug" 
               className="rounded-lg shadow-xl w-full object-cover transform hover:scale-105 transition-transform duration-500"
             />
           </div>
-          <div className="md:w-1/2" data-aos="fade-left">
-            <h2 className="text-4xl font-bold text-emerald-800 mb-6">About Aarug</h2>
-            <div className="w-16 h-1 bg-yellow-400 mb-8"></div>
+          <div className="w-full md:w-1/2 mt-6 md:mt-0" data-aos="fade-left">
+            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-4 sm:mb-6">About Aarug</h2>
+            <div className="w-16 h-1 bg-yellow-400 mb-6 sm:mb-8"></div>
             <p className="text-emerald-700 mb-4">
               Aarug was born from a vision to create sustainable menstrual products that are both 
               kind to the environment and comfortable for users. We believe that menstrual care 
@@ -76,11 +76,11 @@ const About = () => {
           </div>
         </div>
 
-        {/* What We Do Section - Content Left, Image Right */}
-        <div className="flex flex-col-reverse md:flex-row items-center gap-10 mb-32">
-          <div className="md:w-1/2" data-aos="fade-right">
-            <h2 className="text-4xl font-bold text-emerald-800 mb-6">What We Do</h2>
-            <div className="w-16 h-1 bg-yellow-400 mb-8"></div>
+        {/* What We Do Section */}
+        <div className="flex flex-col-reverse md:flex-row items-center gap-6 sm:gap-10 mb-16 sm:mb-32">
+          <div className="w-full md:w-1/2 mt-6 md:mt-0" data-aos="fade-right">
+            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-4 sm:mb-6">What We Do</h2>
+            <div className="w-16 h-1 bg-yellow-400 mb-6 sm:mb-8"></div>
             <p className="text-emerald-700 mb-4">
               At Aarug, we design and manufacture high-quality, reusable menstrual products that 
               are both comfortable and environmentally friendly. Our product range includes:
@@ -108,7 +108,7 @@ const About = () => {
               community outreach programs.
             </p>
           </div>
-          <div className="md:w-1/2" data-aos="fade-left">
+          <div className="w-full md:w-1/2" data-aos="fade-left">
             <img 
               src={whatWeDoImage}
               alt="What We Do" 
@@ -118,15 +118,15 @@ const About = () => {
         </div>
 
         {/* Our Journey Section with Background */}
-        <div className="relative py-24 mb-32">
+        <div className="relative py-12 sm:py-24 mb-16 sm:mb-32">
           <div 
             className="absolute inset-0 bg-cover bg-center opacity-15 rounded-xl" 
             style={{ backgroundImage: `url(${journeyBackground})` }}
           ></div>
-          <div className="relative z-10 max-w-4xl mx-auto text-center px-6" data-aos="zoom-in">
-            <h2 className="text-4xl font-bold text-emerald-800 mb-6">Our Journey</h2>
-            <div className="w-20 h-1 bg-yellow-400 mx-auto mb-8"></div>
-            <p className="text-2xl text-emerald-700 mb-8 italic font-serif">
+          <div className="relative z-10 max-w-4xl mx-auto text-center px-4 sm:px-6" data-aos="zoom-in">
+            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-4 sm:mb-6">Our Journey</h2>
+            <div className="w-20 h-1 bg-yellow-400 mx-auto mb-6 sm:mb-8"></div>
+            <p className="text-xl sm:text-2xl text-emerald-700 mb-6 sm:mb-8 italic font-serif">
               "It all began with a shovel and digging a hole…"
             </p>
             <p className="text-emerald-700 mb-4">
@@ -147,20 +147,20 @@ const About = () => {
         </div>
 
         {/* Core Values Section */}
-        <div className="mb-32">
-          <h2 className="text-4xl font-bold text-emerald-800 mb-6 text-center" data-aos="fade-up">Our Core Values</h2>
-          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-12"></div>
-          <div className="grid md:grid-cols-2 gap-12">
+        <div className="mb-16 sm:mb-32">
+          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-4 sm:mb-6 text-center" data-aos="fade-up">Our Core Values</h2>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-8 sm:mb-12"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             
             {/* Eco-Sisterhood */}
             <div 
-              className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-8 shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" 
+              className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-6 sm:p-8 shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" 
               data-aos="fade-right"
             >
               <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <Users className="h-8 w-8 text-emerald-800" />
               </div>
-              <h3 className="text-2xl font-semibold text-emerald-800 mb-4 text-center">Eco-Sisterhood</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-emerald-800 mb-4 text-center">Eco-Sisterhood</h3>
               <p className="text-emerald-700 mb-4">
                 We believe in fostering a community of women who support each other and the planet. 
                 Our eco-sisterhood is built on shared values of environmental responsibility and 
@@ -174,13 +174,13 @@ const About = () => {
             
             {/* Connection to Earth */}
             <div 
-              className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-8 shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" 
+              className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-6 sm:p-8 shadow-xl transform transition-all duration-500 hover:shadow-2xl hover:-translate-y-2" 
               data-aos="fade-left"
             >
               <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
                 <Heart className="h-8 w-8 text-emerald-800" />
               </div>
-              <h3 className="text-2xl font-semibold text-emerald-800 mb-4 text-center">Connection to Earth</h3>
+              <h3 className="text-xl sm:text-2xl font-semibold text-emerald-800 mb-4 text-center">Connection to Earth</h3>
               <p className="text-emerald-700 mb-4">
                 We honor the deep connection between women's bodies and the natural world. Our products 
                 are designed to respect this connection, using materials that come from and return to 
@@ -195,17 +195,17 @@ const About = () => {
         </div>
 
         {/* Meet Our Team Section */}
-        <div className="flex flex-col md:flex-row items-center gap-10 mb-32">
-          <div className="md:w-1/2" data-aos="fade-right">
+        <div className="flex flex-col md:flex-row items-center gap-6 sm:gap-10 mb-16 sm:mb-32">
+          <div className="w-full md:w-1/2" data-aos="fade-right">
             <img 
               src={teamImage}
               alt="Our Team" 
               className="rounded-xl shadow-xl w-full object-cover transform hover:scale-105 transition-transform duration-500"
             />
           </div>
-          <div className="md:w-1/2" data-aos="fade-left">
-            <h2 className="text-4xl font-bold text-emerald-800 mb-6">Meet Our Team</h2>
-            <div className="w-16 h-1 bg-yellow-400 mb-8"></div>
+          <div className="w-full md:w-1/2 mt-6 md:mt-0" data-aos="fade-left">
+            <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-4 sm:mb-6">Meet Our Team</h2>
+            <div className="w-16 h-1 bg-yellow-400 mb-6 sm:mb-8"></div>
             <p className="text-emerald-700 mb-4">
               Our team is made up of passionate individuals committed to making a difference in 
               women's lives and for our planet. With diverse backgrounds in sustainability, design, 
@@ -223,25 +223,25 @@ const About = () => {
         </div>
 
         {/* Founders Section */}
-        <div className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-12 shadow-xl mb-24" data-aos="zoom-in">
-          <h2 className="text-4xl font-bold text-emerald-800 mb-6 text-center">Our Founders</h2>
-          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-12"></div>
-          <div className="grid md:grid-cols-2 gap-12">
+        <div className="bg-gradient-to-br from-emerald-50 to-green-100 rounded-xl p-6 sm:p-12 shadow-xl mb-16 sm:mb-24" data-aos="zoom-in">
+          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-4 sm:mb-6 text-center">Our Founders</h2>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-8 sm:mb-12"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             
             {/* CEO */}
             <div 
-              className="bg-white rounded-xl p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
               data-aos="fade-right" data-aos-delay="100"
             >
-              <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="flex flex-col items-center text-center md:flex-row md:text-left gap-4 md:gap-6">
                 <img
                   src={ceoImage}
                   alt="Vinita Patel"
-                  className="w-32 h-32 object-cover rounded-full shadow-md border-4 border-yellow-400"
+                  className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full shadow-md border-4 border-yellow-400"
                 />
                 <div>
-                  <h3 className="text-2xl font-semibold text-emerald-800">Vinita Patel</h3>
-                  <p className="text-yellow-500 font-medium mb-3">Founder & CEO</p>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-emerald-800">Vinita Patel</h3>
+                  <p className="text-yellow-500 font-medium mb-2 sm:mb-3">Founder & CEO</p>
                   <p className="text-emerald-700">
                     Passionate about sustainability and women's health, Vinita founded Aarug with 
                     a vision to revolutionize menstrual care through eco-friendly solutions.
@@ -252,18 +252,18 @@ const About = () => {
 
             {/* Co-Founder */}
             <div 
-              className="bg-white rounded-xl p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
               data-aos="fade-left" data-aos-delay="100"
             >
-              <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className="flex flex-col items-center text-center md:flex-row md:text-left gap-4 md:gap-6">
                 <img
                   src={coFounderImage}
                   alt="Praksha"
-                  className="w-32 h-32 object-cover rounded-full shadow-md border-4 border-yellow-400"
+                  className="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-full shadow-md border-4 border-yellow-400"
                 />
                 <div>
-                  <h3 className="text-2xl font-semibold text-emerald-800">Praksha</h3>
-                  <p className="text-yellow-500 font-medium mb-3">Co-Founder & COO</p>
+                  <h3 className="text-xl sm:text-2xl font-semibold text-emerald-800">Praksha</h3>
+                  <p className="text-yellow-500 font-medium mb-2 sm:mb-3">Co-Founder & COO</p>
                   <p className="text-emerald-700">
                     With expertise in operations and product development, Praksha ensures Aarug 
                     delivers high-quality, innovative products while maintaining our commitment 
@@ -276,44 +276,44 @@ const About = () => {
         </div>
 
         {/* Contact Us Section */}
-        <div className="bg-gradient-to-br from-emerald-100 to-green-200 rounded-xl p-12 shadow-xl" data-aos="fade-up">
-          <h2 className="text-4xl font-bold text-emerald-800 mb-6 text-center">Contact Us</h2>
-          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-12"></div>
+        <div className="bg-gradient-to-br from-emerald-100 to-green-200 rounded-xl p-6 sm:p-12 shadow-xl" data-aos="fade-up">
+          <h2 className="text-3xl sm:text-4xl font-bold text-emerald-800 mb-4 sm:mb-6 text-center">Contact Us</h2>
+          <div className="w-20 h-1 bg-yellow-400 mx-auto mb-8 sm:mb-12"></div>
 
-          <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 text-center">
             {/* Address */}
             <div 
-              className="bg-white p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
+              className="bg-white p-6 sm:p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2" 
               data-aos="fade-up" data-aos-delay="100"
             >
-              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <MapPin className="h-8 w-8 text-emerald-800" />
+              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                <MapPin className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-800" />
               </div>
-              <h3 className="text-xl font-semibold text-emerald-800 mb-2">Our Location</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-emerald-800 mb-2">Our Location</h3>
               <p className="text-emerald-700">GGU College Startup Center, Chhattisgarh, India</p>
             </div>
 
             {/* Email */}
             <div 
-              className="bg-white p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
+              className="bg-white p-6 sm:p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
               data-aos="fade-up" data-aos-delay="200"
             >
-              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <Mail className="h-8 w-8 text-emerald-800" />
+              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                <Mail className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-800" />
               </div>
-              <h3 className="text-xl font-semibold text-emerald-800 mb-2">Email Us</h3>
-              <p className="text-emerald-700">support@aarug.com</p>
+              <h3 className="text-lg sm:text-xl font-semibold text-emerald-800 mb-2">Email Us</h3>
+              <p className="text-emerald-700 break-all">support@aarug.com</p>
             </div>
 
             {/* Phone */}
             <div 
-              className="bg-white p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2"
+              className="bg-white p-6 sm:p-8 rounded-xl shadow-lg transform transition-all duration-500 hover:shadow-xl hover:-translate-y-2 sm:col-span-2 md:col-span-1"
               data-aos="fade-up" data-aos-delay="300"
             >
-              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-6 mx-auto">
-                <Phone className="h-8 w-8 text-emerald-800" />
+              <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mb-4 sm:mb-6 mx-auto">
+                <Phone className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-800" />
               </div>
-              <h3 className="text-xl font-semibold text-emerald-800 mb-2">Call Us</h3>
+              <h3 className="text-lg sm:text-xl font-semibold text-emerald-800 mb-2">Call Us</h3>
               <p className="text-emerald-700">+91 9111361052</p>
             </div>
           </div>
