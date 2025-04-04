@@ -51,7 +51,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative w-full h-[500px] overflow-hidden bg-white">
+    <div className="relative w-full h-auto md:h-[500px] overflow-hidden bg-white">
       {/* Slide Wrapper */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
