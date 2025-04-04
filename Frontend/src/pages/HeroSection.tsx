@@ -1,5 +1,6 @@
-import  { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
+
 const slides = [
   {
     title: "Embrace a Sustainable Future",
@@ -21,11 +22,12 @@ const slides = [
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideInterval = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     startAutoSlide();
     return () => stopAutoSlide();
-  }, [currentIndex]);
+  }, []);
 
   const startAutoSlide = () => {
     stopAutoSlide();
@@ -47,55 +49,64 @@ const HeroSection = () => {
   const goToPrevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
   };
-  const navigate = useNavigate();
 
   return (
-    <div className="relative w-full h-[500px] overflow-hidden">
-      {slides.map((slide, index) => (
-        <div
-          key={index}
-          className={`absolute top-0 left-0 w-full h-full flex flex-col md:flex-row items-center justify-center px-8 md:px-16 transition-opacity duration-1000 ${
-            index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-          }`}
-        >
-          {/* Left Content */}
-          <div className="w-full md:w-1/2 space-y-4 text-center md:text-left">
-      <h1 className="text-4xl md:text-5xl font-bold text-[#2A9D8F]">{slide.title}</h1>
-      <p className="text-lg text-gray-700">{slide.description}</p>
-      <div className="flex gap-4 justify-center md:justify-start">
-        <button
-          onClick={() => navigate('/products')}
-          className="px-6 py-2 bg-[#F4A261] hover:bg-[#E76F51] text-white font-semibold rounded-lg transition"
-        >
-          Shop Now
-        </button>
-        <button
-          onClick={() => navigate('/about')}
-          className="px-6 py-2 border-2 border-[#2A9D8F] text-[#2A9D8F] hover:bg-[#2A9D8F] hover:text-white font-semibold rounded-lg transition"
-        >
-          Learn More
-        </button>
-      </div>
-    </div>
-          {/* Right Image */}
-          <div className="w-full md:w-1/2 flex justify-center">
-            <img src={slide.img} alt="Eco-friendly products" className="rounded-lg shadow-lg max-h-80 object-cover" />
-          </div>
-        </div>
-      ))}
+    <div className="relative w-full h-[500px] overflow-hidden bg-white">
+      {/* Slide Wrapper */}
+      <div className="relative w-full h-full">
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            className={`transition-opacity duration-1000 ease-in-out ${
+              index === currentIndex ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 w-full'
+            }`}
+          >
+            <div className="flex flex-col md:flex-row items-center justify-center px-4 md:px-16 py-10 md:py-20">
+              {/* Image Always Visible */}
+              <div className="w-full md:w-1/2 mb-6 md:mb-0 flex justify-center">
+                <img
+                  src={slide.img}
+                  alt="Slide"
+                  className="rounded-xl shadow-lg max-h-[300px] md:max-h-[400px] w-full object-cover"
+                />
+              </div>
 
-      {/* Navigation Arrows */}
+              {/* Content (hidden on small screens) */}
+              <div className="w-full md:w-1/2 space-y-4 text-center md:text-left hidden md:block">
+                <h1 className="text-3xl md:text-5xl font-bold text-[#2A9D8F]">{slide.title}</h1>
+                <p className="text-lg text-gray-700 leading-relaxed">{slide.description}</p>
+                <div className="flex gap-4 justify-center md:justify-start flex-wrap">
+                  <button
+                    onClick={() => navigate('/products')}
+                    className="px-6 py-2 bg-[#F4A261] hover:bg-[#E76F51] text-white font-semibold rounded-lg transition"
+                  >
+                    Shop Now
+                  </button>
+                  <button
+                    onClick={() => navigate('/about')}
+                    className="px-6 py-2 border-2 border-[#2A9D8F] text-[#2A9D8F] hover:bg-[#2A9D8F] hover:text-white font-semibold rounded-lg transition"
+                  >
+                    Learn More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Arrows */}
       <button 
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 text-white p-2 rounded-full"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 text-white p-2 rounded-full z-20"
         onClick={goToPrevSlide}
       >&#9664;</button>
       <button 
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 text-white p-2 rounded-full"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 text-white p-2 rounded-full z-20"
         onClick={goToNextSlide}
       >&#9654;</button>
 
-      {/* Navigation Dots */}
-      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2">
+      {/* Dots */}
+      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -109,3 +120,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
