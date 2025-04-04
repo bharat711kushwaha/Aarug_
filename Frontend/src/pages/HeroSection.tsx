@@ -1,28 +1,26 @@
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from "react-router-dom";
 
 const slides = [
   {
-    title: "Embrace a Sustainable Future",
-    description: "Say goodbye to disposable pads and embrace a healthier, eco-friendly alternative. Our reusable pads are designed for comfort, hygiene, and sustainability—so you can care for yourself and the planet at the same time.",
-    img: "https://media.istockphoto.com/id/1521121105/photo/young-indian-woman-educating-other-traditional-women-about-sanitary-pad-and-how-to-use-it.jpg?s=1024x1024&w=is&k=20&c=hZCesO-UEn3q5Gr04_FrE_MtUSMzBw3XpN6x2NbxQs8="
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkDlFQPdwqBhbUdER2oPrI9Voo3nj4wRLLHA&s"
   },
   {
-    title: "Smart Choices, Lasting Impact",
-    description: "Invest in quality that lasts. Our reusable menstrual products are crafted from soft, breathable, and highly absorbent materials, offering superior protection for years. Save money while reducing your environmental footprint—one cycle at a time.",
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh7c2AIoLq1S_BS2S-cJNmbTqKRUGZAoN3bw&s"
+    img: "https://m.media-amazon.com/images/I/61xVdKsD4bL._AC_UF1000,1000_QL80_.jpg"
   },
   {
-    title: "Join Thousands Making a Difference",
-    description: "Over 5,000 women have already switched to our reusable products, preventing millions of disposable pads from ending up in landfills. By making the switch today, you're not just choosing comfort and convenience—you're becoming part of a global movement for a greener future.",
-    img: "https://images.unsplash.com/photo-1597173215351-16d4faf23ea3?w=500&auto=format&fit=crop&q=60"
+    img: "https://m.media-amazon.com/images/I/41I0uQjSKPL._AC_UF1000,1000_QL80_.jpg"
+  },
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpqIZAdUHdY2II_vOz3Q80Q-p4nUG-hkM_eQ&s0"
+  },
+  {
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNMozhUmEolFwcnZKliNllVzU6nA8GNxAuZA&s"
   }
 ];
 
 const HeroSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const slideInterval = useRef(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     startAutoSlide();
@@ -51,67 +49,56 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="relative w-full h-auto md:h-[500px] overflow-hidden bg-white">
+<div className="relative w-full h-[280px] md:h-[500px] overflow-hidden bg-black overflow-x-hidden">
+
       {/* Slide Wrapper */}
       <div className="relative w-full h-full">
         {slides.map((slide, index) => (
           <div
             key={index}
-            className={`transition-opacity duration-1000 ease-in-out ${
-              index === currentIndex ? 'opacity-100' : 'opacity-0 absolute top-0 left-0 w-full'
+            className={`transition-opacity duration-1000 ease-in-out absolute top-0 left-0 w-full h-full ${
+              index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
             }`}
           >
-            <div className="flex flex-col md:flex-row items-center justify-center px-4 md:px-16 py-10 md:py-20">
-              {/* Image Always Visible */}
-              <div className="w-full md:w-1/2 mb-6 md:mb-0 flex justify-center">
-                <img
-                  src={slide.img}
-                  alt="Slide"
-                  className="rounded-xl shadow-lg max-h-[300px] md:max-h-[400px] w-full object-cover"
-                />
-              </div>
-
-              {/* Content (hidden on small screens) */}
-              <div className="w-full md:w-1/2 space-y-4 text-center md:text-left hidden md:block">
-                <h1 className="text-3xl md:text-5xl font-bold text-[#2A9D8F]">{slide.title}</h1>
-                <p className="text-lg text-gray-700 leading-relaxed">{slide.description}</p>
-                <div className="flex gap-4 justify-center md:justify-start flex-wrap">
-                  <button
-                    onClick={() => navigate('/products')}
-                    className="px-6 py-2 bg-[#F4A261] hover:bg-[#E76F51] text-white font-semibold rounded-lg transition"
-                  >
-                    Shop Now
-                  </button>
-                  <button
-                    onClick={() => navigate('/about')}
-                    className="px-6 py-2 border-2 border-[#2A9D8F] text-[#2A9D8F] hover:bg-[#2A9D8F] hover:text-white font-semibold rounded-lg transition"
-                  >
-                    Learn More
-                  </button>
-                </div>
-              </div>
-            </div>
+            <img
+              src={slide.img}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
           </div>
         ))}
       </div>
 
-      {/* Arrows */}
+      {/* Navigation Controls */}
       <button 
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black/40 text-white p-2 rounded-full z-20"
+        className="absolute top-1/2 left-3 md:left-4 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 md:p-3 rounded-full z-20 transition-all"
         onClick={goToPrevSlide}
-      >&#9664;</button>
+        aria-label="Previous slide"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
+        </svg>
+      </button>
       <button 
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black/40 text-white p-2 rounded-full z-20"
+        className="absolute top-1/2 right-3 md:right-4 transform -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 md:p-3 rounded-full z-20 transition-all"
         onClick={goToNextSlide}
-      >&#9654;</button>
+        aria-label="Next slide"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
+        </svg>
+      </button>
 
       {/* Dots */}
-      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
+      <div className="absolute bottom-4 md:bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentIndex(index)}
-            className={`w-4 h-4 rounded-full ${currentIndex === index ? 'bg-[#F4A261]' : 'bg-gray-300'}`}
+            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
+              currentIndex === index ? 'bg-[#F4A261] w-4' : 'bg-gray-300'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>
@@ -120,4 +107,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
