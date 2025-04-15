@@ -221,7 +221,7 @@ export const Navbar = () => {
                 <button
                   onClick={() => {
                     toggleProfileDialog();
-                    closeMenu();
+                   
                   }}
                   className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-green-50 hover:text-green-600 flex items-center"
                 >
@@ -239,7 +239,7 @@ export const Navbar = () => {
                       className="block py-2 text-sm text-gray-700"
                       onClick={() => {
                         setShowProfileDialog(false);
-                       
+                        closeMenu();
                       }}
                     >
                       View Profile
