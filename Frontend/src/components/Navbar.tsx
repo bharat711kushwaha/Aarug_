@@ -239,7 +239,7 @@ export const Navbar = () => {
                       className="block py-2 text-sm text-gray-700"
                       onClick={() => {
                         setShowProfileDialog(false);
-                        closeMenu();
+                       
                       }}
                     >
                       View Profile
